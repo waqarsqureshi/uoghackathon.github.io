@@ -918,13 +918,15 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 0.9rem 1rem;
+        padding-bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
         gap: 0.8rem;
-        font-size: 0.8rem;
+        font-size: 0.82rem;
       }
       #gdpr-dismiss {
         width: 100%;
         text-align: center;
-        padding: 0.55rem 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.88rem;
       }
     }
   </style>
@@ -1648,11 +1650,11 @@
 <script>
   (function () {
     var notice = document.getElementById('gdpr-notice');
-    if (localStorage.getItem('gdpr_dismissed') === '1') {
+    if (localStorage.getItem('gdpr_ok_v2') === '1') {
       notice.classList.add('hidden');
     }
     document.getElementById('gdpr-dismiss').addEventListener('click', function () {
-      localStorage.setItem('gdpr_dismissed', '1');
+      localStorage.setItem('gdpr_ok_v2', '1');
       notice.classList.add('hidden');
     });
   })();
