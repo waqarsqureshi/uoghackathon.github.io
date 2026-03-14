@@ -772,13 +772,31 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 62px; left: 0; right: 0;
+        top: 90px; left: 0; right: 0;
         background: var(--dark-maroon);
-        padding: 0.8rem 1rem;
+        padding: 0.6rem 0.8rem 1rem;
         box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        z-index: 999;
       }
       .nav-links.open  { display: flex; }
       .nav-toggle      { display: block; }
+
+      /* Fix: override desktop text colour so links are visible on dark background */
+      .nav-links li    { width: 100%; }
+      .nav-links a {
+        color: var(--white);
+        padding: 0.72rem 1rem;
+        font-size: 0.97rem;
+        border-radius: 6px;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .nav-links a:hover {
+        color: var(--gold);
+        background: rgba(255,255,255,0.10);
+      }
 
       .about-grid      { grid-template-columns: 1fr; gap: 2rem; }
       .tracks-grid     { grid-template-columns: 1fr; }
