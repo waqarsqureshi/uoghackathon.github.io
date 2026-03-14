@@ -4,7 +4,7 @@
 > Theme 2026: *"IoT is Bold"* & *"Old is Gold"*  
 > Wednesday, March 18, 2026 — CSB 2015 / CSB 2014 · 3:00–6:00 PM · Awards: SULT Corrib Room 6:00–7:00 PM
 
-Live site: **https://waqarsqureshi.github.io/uoghackathon/**
+Live site: **https://waqarsqureshi.github.io/cshackathon/**
 
 ---
 
@@ -14,7 +14,7 @@ Live site: **https://waqarsqureshi.github.io/uoghackathon/**
 2. Go to **Settings → Pages**.
 3. Under *Source*, select **Deploy from a branch**.
 4. Choose branch **`main`** and folder **`/ (root)`**, then click **Save**.
-5. After ~60 seconds your site is live at `https://waqarsqureshi.github.io/uoghackathon/`.
+5. After ~60 seconds your site is live at `https://waqarsqureshi.github.io/cshackathon/`.
 
 ---
 

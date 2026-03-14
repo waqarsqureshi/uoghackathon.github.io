@@ -525,10 +525,27 @@
       padding: 2.5rem;
       text-align: center;
     }
-    .contact-box h3 { color: var(--gold); font-size: 1.45rem; margin-bottom: 0.4rem; }
+    .contact-box h3 { color: var(--gold); font-size: 1.45rem; margin-bottom: 1.2rem; }
     .contact-box p  { color: rgba(255,255,255,0.82); margin-bottom: 0.4rem; }
     .contact-box a  { color: var(--gold); text-decoration: none; }
     .contact-box a:hover { text-decoration: underline; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
+      text-align: left;
+    }
+    .contact-person {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,199,43,0.35);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+    .contact-person .role  { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 0.4rem; }
+    .contact-person .name  { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .contact-person .dept  { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
+    .contact-person a      { font-size: 0.85rem; color: var(--gold); text-decoration: none; word-break: break-all; }
+    .contact-person a:hover { text-decoration: underline; }
 
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
@@ -1021,12 +1038,26 @@
     </div>
     <div class="contact-box">
       <h3>📧 Get in Touch</h3>
-      <p>Module coordinator &amp; hackathon organiser:</p>
-      <p><strong style="color:#fff;font-size:1.1rem;">Dr. Waqar Shahid Qureshi</strong></p>
-      <p>School of Computer Science &nbsp;·&nbsp; University of Galway</p>
-      <p style="margin-top:0.8rem;">
-        <a href="mailto:waqarshahid.qureshi@universityofgalway.ie">waqarshahid.qureshi@universityofgalway.ie</a>
-      </p>
+      <div class="contact-grid">
+        <div class="contact-person">
+          <div class="role">Module Coordinator</div>
+          <div class="name">Dr. Waqar Shahid Qureshi</div>
+          <div class="dept">School of Computer Science &nbsp;·&nbsp; University of Galway</div>
+          <a href="mailto:waqarshahid.qureshi@universityofgalway.ie">waqarshahid.qureshi@universityofgalway.ie</a>
+        </div>
+        <div class="contact-person">
+          <div class="role">Programme Coordinator</div>
+          <div class="name">Dr. Colm O' Riordan</div>
+          <div class="dept">School of Computer Science &nbsp;·&nbsp; University of Galway</div>
+          <a href="mailto:colm.oriordan@universityofgalway.ie">colm.oriordan@universityofgalway.ie</a>
+        </div>
+        <div class="contact-person">
+          <div class="role">Head of School</div>
+          <div class="name">Dr. Enda Howley</div>
+          <div class="dept">School of Computer Science &nbsp;·&nbsp; University of Galway</div>
+          <a href="mailto:ehowley@universityofgalway.ie">ehowley@universityofgalway.ie</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1037,7 +1068,7 @@
   <p>School of Computer Science &nbsp;·&nbsp; University of Galway</p>
   <p style="margin-top:0.7rem;font-size:0.78rem;opacity:0.55;">
     Theme 2026: &ldquo;IoT is Bold&rdquo; &amp; &ldquo;Old is Gold&rdquo; &nbsp;&mdash;&nbsp;
-    Hosted at <a href="https://github.com/waqarsqureshi/uoghackathon" style="color:var(--gold);text-decoration:none;">github.com/waqarsqureshi/uoghackathon</a>
+    Hosted at <a href="https://github.com/waqarsqureshi/cshackathon" style="color:var(--gold);text-decoration:none;">github.com/waqarsqureshi/cshackathon</a>
   </p>
 </footer>
 
