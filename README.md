@@ -45,8 +45,18 @@ uoghackathon/
 
 ---
 
-## Module Coordinator
+### Module Coordinator
 
 **Dr. Waqar Shahid Qureshi**  
 School of Computer Science, University of Galway  
-waqar.qureshi@universityofgalway.ie
+waqarshahid.qureshi@universityofgalway.ie
+
+### Program Coordinator
+**Dr. Colm O' Riordan**  
+School of Computer Science, University of Galway  
+colm.oriordan@universityofgalway.ie
+
+### Head of School
+**Dr. Enda Howley**  
+School of Computer Science, University of Galway  
+ehowley@universityofgalway.ie
