@@ -768,13 +768,25 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 780px) {
+      /* Compact navbar on mobile */
+      .navbar {
+        min-height: 60px;
+        padding: 0 1rem;
+      }
+      .nav-brand img {
+        height: 44px;
+      }
+      .nav-toggle {
+        font-size: 1.4rem;
+      }
+
       .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 90px; left: 0; right: 0;
+        top: 60px; left: 0; right: 0;
         background: var(--dark-maroon);
-        padding: 0.6rem 0.8rem 1rem;
+        padding: 0.4rem 0.6rem 0.8rem;
         box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         z-index: 999;
       }
@@ -785,8 +797,8 @@
       .nav-links li    { width: 100%; }
       .nav-links a {
         color: var(--white);
-        padding: 0.72rem 1rem;
-        font-size: 0.97rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.88rem;
         border-radius: 6px;
         display: block;
         width: 100%;
