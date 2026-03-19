@@ -650,6 +650,70 @@
       font-weight: 800;
       flex-shrink: 0;
     }
+    /* ── GALLERY ──────────────────────────────────── */
+    #gallery { background: var(--light-bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      background: none; border: none;
+      color: #fff; font-size: 2.2rem;
+      cursor: pointer; line-height: 1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.15);
+      border: none; color: #fff;
+      font-size: 2rem; padding: 0.6rem 1rem;
+      cursor: pointer; border-radius: 6px;
+      transition: background .2s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-counter {
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+    }
+
     .medal-gold   { background: var(--gold); color: #5a3a00; }
     .medal-silver { background: #c0c0c0; color: #333; }
     .medal-bronze { background: #cd7f32; color: #fff; }
@@ -946,6 +1010,7 @@
     <li><a href="#teams">Teams</a></li>
     <li><a href="#judging">Judging</a></li>
     <li><a href="#awards">Awards</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#registration">Register</a></li>
     <li><a href="#downloads">Downloads</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -1509,6 +1574,64 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════  GALLERY  ═══════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-label">Hackathon Day</div>
+      <h2 class="sec-title">Photo <span>Gallery</span></h2>
+      <div class="sec-div"></div>
+      <p style="color:var(--text-light);max-width:520px;margin:1rem auto 0;font-size:0.95rem;">Highlights from CT101 Hackathon 2026 &mdash; March 18, 2026. Faces have been anonymised.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" onclick="openLightbox(0)"><img src="pics-blurred/20260318_153750.jpg" alt="Hackathon photo 1" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="pics-blurred/20260318_153757.jpg" alt="Hackathon photo 2" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="pics-blurred/20260318_153803.jpg" alt="Hackathon photo 3" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(3)"><img src="pics-blurred/20260318_153807.jpg" alt="Hackathon photo 4" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(4)"><img src="pics-blurred/20260318_161414.jpg" alt="Hackathon photo 5" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(5)"><img src="pics-blurred/20260318_161417.jpg" alt="Hackathon photo 6" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(6)"><img src="pics-blurred/20260318_163410.jpg" alt="Hackathon photo 7" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(7)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.49 (1).jpeg" alt="Hackathon photo 8" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(8)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.49 (2).jpeg" alt="Hackathon photo 9" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(9)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.49.jpeg" alt="Hackathon photo 10" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(10)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.50 (1).jpeg" alt="Hackathon photo 11" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(11)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.50 (2).jpeg" alt="Hackathon photo 12" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(12)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.50 (3).jpeg" alt="Hackathon photo 13" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(13)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.50.jpeg" alt="Hackathon photo 14" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(14)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.51 (1).jpeg" alt="Hackathon photo 15" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(15)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.51 (2).jpeg" alt="Hackathon photo 16" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(16)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.51.jpeg" alt="Hackathon photo 17" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(17)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52 (1).jpeg" alt="Hackathon photo 18" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(18)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52 (2).jpeg" alt="Hackathon photo 19" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(19)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52 (3).jpeg" alt="Hackathon photo 20" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(20)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52 (4).jpeg" alt="Hackathon photo 21" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(21)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52 (5).jpeg" alt="Hackathon photo 22" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(22)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.52.jpeg" alt="Hackathon photo 23" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(23)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.53 (1).jpeg" alt="Hackathon photo 24" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(24)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.53 (2).jpeg" alt="Hackathon photo 25" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(25)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.53.jpeg" alt="Hackathon photo 26" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(26)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.54 (1).jpeg" alt="Hackathon photo 27" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(27)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.54 (2).jpeg" alt="Hackathon photo 28" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(28)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.54 (3).jpeg" alt="Hackathon photo 29" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(29)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.54.jpeg" alt="Hackathon photo 30" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(30)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.55.jpeg" alt="Hackathon photo 31" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(31)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.56.jpeg" alt="Hackathon photo 32" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(32)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.57 (1).jpeg" alt="Hackathon photo 33" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(33)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.57.jpeg" alt="Hackathon photo 34" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox(34)"><img src="pics-blurred/WhatsApp Image 2026-03-19 at 08.31.59.jpeg" alt="Hackathon photo 35" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="moveLightbox(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" onclick="moveLightbox(1)">&#8250;</button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
 <!-- ═══════════════════════════  REGISTRATION  ═══════════════════ -->
 <section id="registration">
   <div class="container">
@@ -1626,6 +1749,36 @@
     e.currentTarget.classList.add('active');
     document.getElementById('reg-' + panel).classList.add('active');
   }
+
+  /* ── Lightbox ────────────────────────────────────── */
+  const galleryImgs = Array.from(document.querySelectorAll('#galleryGrid .gallery-item img')).map(i => i.src);
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    document.getElementById('lightbox-img').src = galleryImgs[idx];
+    document.getElementById('lightbox-counter').textContent = (idx + 1) + ' / ' + galleryImgs.length;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+  function moveLightbox(dir) {
+    currentIdx = (currentIdx + dir + galleryImgs.length) % galleryImgs.length;
+    document.getElementById('lightbox-img').src = galleryImgs[currentIdx];
+    document.getElementById('lightbox-counter').textContent = (currentIdx + 1) + ' / ' + galleryImgs.length;
+  }
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') moveLightbox(1);
+    if (e.key === 'ArrowLeft')  moveLightbox(-1);
+    if (e.key === 'Escape')     closeLightbox();
+  });
 </script>
 
 <script>
