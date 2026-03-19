@@ -1583,6 +1583,19 @@
       <div class="sec-div"></div>
       <p style="color:var(--text-light);max-width:520px;margin:1rem auto 0;font-size:0.95rem;">Highlights from CT101 Hackathon 2026 &mdash; March 18, 2026. Faces have been anonymised.</p>
     </div>
+    <!-- Awards Ceremony Photos -->
+    <h3 style="text-align:center;font-family:'Raleway',sans-serif;color:var(--dark-maroon);font-size:1.3rem;margin-bottom:1rem;">🏆 Awards Ceremony</h3>
+    <div class="gallery-grid" id="galleryAward" style="margin-bottom:2.5rem;">
+      <div class="gallery-item" onclick="openLightboxAward(0)"><img src="pics-blurred/award/IMAGE 1.jpeg" alt="Awards ceremony 1" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightboxAward(1)"><img src="pics-blurred/award/IMAGE 2.jpeg" alt="Awards ceremony 2" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightboxAward(2)"><img src="pics-blurred/award/IMAGE 3.jpeg" alt="Awards ceremony 3" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightboxAward(3)"><img src="pics-blurred/award/IMAGE 4.jpeg" alt="Awards ceremony 4" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightboxAward(4)"><img src="pics-blurred/award/IMAGE 5.jpeg" alt="Awards ceremony 5" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightboxAward(5)"><img src="pics-blurred/award/IMAGE 6.jpeg" alt="Awards ceremony 6" loading="lazy"></div>
+    </div>
+
+    <!-- Hackathon Day Photos -->
+    <h3 style="text-align:center;font-family:'Raleway',sans-serif;color:var(--dark-maroon);font-size:1.3rem;margin-bottom:1rem;">📸 Hackathon Day</h3>
     <div class="gallery-grid" id="galleryGrid">
       <div class="gallery-item" onclick="openLightbox(0)"><img src="pics-blurred/20260318_153750.jpg" alt="Hackathon photo 1" loading="lazy"></div>
       <div class="gallery-item" onclick="openLightbox(1)"><img src="pics-blurred/20260318_153757.jpg" alt="Hackathon photo 2" loading="lazy"></div>
@@ -1773,6 +1786,38 @@
     document.getElementById('lightbox-img').src = galleryImgs[currentIdx];
     document.getElementById('lightbox-counter').textContent = (currentIdx + 1) + ' / ' + galleryImgs.length;
   }
+
+  const awardImgs = Array.from(document.querySelectorAll('#galleryAward .gallery-item img')).map(i => i.src);
+  let currentAwardIdx = 0;
+
+  function openLightboxAward(idx) {
+    currentAwardIdx = idx;
+    document.getElementById('lightbox-img').src = awardImgs[idx];
+    document.getElementById('lightbox-counter').textContent = (idx + 1) + ' / ' + awardImgs.length;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lightbox').dataset.mode = 'award';
+  }
+  function moveLightbox(dir) {
+    if (document.getElementById('lightbox').dataset.mode === 'award') {
+      currentAwardIdx = (currentAwardIdx + dir + awardImgs.length) % awardImgs.length;
+      document.getElementById('lightbox-img').src = awardImgs[currentAwardIdx];
+      document.getElementById('lightbox-counter').textContent = (currentAwardIdx + 1) + ' / ' + awardImgs.length;
+    } else {
+      currentIdx = (currentIdx + dir + galleryImgs.length) % galleryImgs.length;
+      document.getElementById('lightbox-img').src = galleryImgs[currentIdx];
+      document.getElementById('lightbox-counter').textContent = (currentIdx + 1) + ' / ' + galleryImgs.length;
+    }
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox').dataset.mode = '';
+    document.body.style.overflow = '';
+  }
+  function closeLightboxBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
   document.addEventListener('keydown', e => {
     if (!document.getElementById('lightbox').classList.contains('open')) return;
     if (e.key === 'ArrowRight') moveLightbox(1);
